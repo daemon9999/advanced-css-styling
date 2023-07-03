@@ -1,0 +1,114 @@
+* {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+
+    --head-from-color: #35d399 ;
+    --head-to-color: #fbe048;
+    --body-color: #1b2728;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: radial-gradient(var(--body-color), #000 70%);
+}
+
+.heading {
+    font-size: 90px;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-weight: 900;
+    background-image: linear-gradient(to right, var(--head-from-color), var(--head-to-color));
+    text-align: center;
+    color: transparent;
+    margin-bottom: 50px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+
+    & .col {
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 35px 20px;
+        gap: 5px;
+        transition: 230ms all;
+        &:hover{
+            transform: scale(1.03);
+        }
+        &:first-child{
+            border-radius: 40px 5px 5px 40px;
+        }
+        &:last-child{
+            border-radius: 5px 40px 40px 5px;
+        }
+        & h6 {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        & p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        & button {
+            height: 40px;
+            background-color: #fff;
+            padding: 0 25px;
+            font-size: 16px;
+            border-radius: 20px;
+            margin-top: 10px;
+            transition: 230ms all;
+            cursor: pointer;
+            
+        }
+
+        &:hover button {
+            background-color: var(--head-from-color);
+            color: #fff
+        }
+    }
+    &:has(.col:hover) .col:not(:hover) button{
+        background: rgba(255, 255, 255, 0.05);
+        color: #fff;
+    }
+}
+
+body:has(.grid .col:nth-child(1):hover){
+    --head-from-color: #dc524b;
+    --head-to-color: #f5c9c8;
+    --body-color: #281b1b;
+}
+body:has(.grid .col:nth-child(2):hover){
+    --head-from-color: #4d80ee;
+    --head-to-color: #c2d8fa;
+    --body-color: #1b2028;
+}
+body:has(.grid .col:nth-child(3):hover){
+    --head-from-color: #9d59ee;
+    --head-to-color: #e4d3fb;
+    --body-color: #261b28;
+}
